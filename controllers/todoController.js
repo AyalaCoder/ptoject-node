@@ -18,16 +18,15 @@ const getAllTodos=async (req, res) => {
 
 const updateTodo= async (req, res) => {
     const {id}=req.params
-    const {title,tags, completed}= req.body
-   
-    
+    const {title, completed}= req.body
+
     const todo = await Todos.findById(id).exec()
     if (!todo) {
     return res.status(400).json({ message: 'todo not found' })
     }
-    todo.title = title
-    if(completed){
-    todo.completed = completed}
+    if(title){
+    todo.title = title}
+    todo.completed = completed
     const updatedTodo = await todo.save()
     res.json(`'${updatedTodo.title}' updated`)
     }

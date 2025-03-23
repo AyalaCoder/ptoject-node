@@ -8,4 +8,4 @@ const postsSchama=new mongoose.Schema({
         type:String
     }
 })
-module.exports = mongoose.models.Posts || mongoose.model('Posts', postsSchema);
+module.exports = mongoose.models.Posts || mongoose.model('Posts', postsSchama);
